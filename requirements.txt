@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+
+PyPDF2
+python-docx
+
+langchain
+langchain-google-genai
+
