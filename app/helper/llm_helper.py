@@ -41,12 +41,3 @@ def analyze_resume(job_description: str, resume_text: str) -> dict:
     except json.JSONDecodeError:
         text = response_text[response_text.find("{"): response_text.rfind("}") + 1]
         return json.loads(text)
-    
-
-def rag_invoke(instruction: str, context: str) -> str:
-    """Call the LLM with the additional retrieved context provided by the vector DB.
-    Returns the LLM text response.
-    """
-    prompt = f"CONTEXT:\n{context}\n\nINSTRUCTION:\n{instruction}\n\nRespond concisely."
-    response = llm.invoke(prompt)
-    return getattr(response, "content", str(response)).strip()
